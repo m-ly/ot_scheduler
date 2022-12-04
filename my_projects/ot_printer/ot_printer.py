@@ -83,7 +83,7 @@ def write_to_file(filename):
   data = zip_lists(ot_headers(), find_num_outages())
   split_data = [data[i: i + 10] for i in range(0, len(data), 10)]
   
-  print(split_data)
+  #print(split_data)
   
 
   number_of_days = num_days(next_month_days)
@@ -102,6 +102,7 @@ def write_to_file(filename):
         day_name = day_names()
         working_doc.write(f"{day_name[x]} {day_num + 1}\n\n")
         x += 1
+        i += 2
         day = split_data[day_num]
         #print(day)
         for time in range(len(day)):
@@ -122,4 +123,4 @@ if not path.exists(file_name):
     write_to_file(file_name)
 else:
   write_to_file(file_name)
-  print("File Exists!")
+  print("File Saved!")
